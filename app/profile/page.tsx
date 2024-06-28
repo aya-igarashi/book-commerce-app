@@ -61,7 +61,7 @@ export default async function ProfilePage() {
         {purchasesDetailBooks.map((book: BookType) => (
           <PurchaseDetailBook
             key={book.id}
-            book={book} // 修正: DOMに渡すプロパティ名を修正
+            book={book}
           />
         ))}
       </div>
