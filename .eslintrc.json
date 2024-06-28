@@ -1,3 +1,16 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals"
+  ],
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "react/display-name": "off" // または "error", "warn" に設定
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // React のバージョンを自動検出
+    }
+  }
 }
