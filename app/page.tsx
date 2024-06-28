@@ -52,7 +52,7 @@ export default async function Home() {
           Book Commerce
         </h2>
         {contents.map((book: BookType) => (
-          <Book key={book.id} book={book} isPurchased={purchaseBookIds.includes(book.id)} /> // 本ごとにBookコンポーネントをレンダリング
+          <Book key={book.id} user={user} book={book} isPurchased={purchaseBookIds.includes(book.id)} /> // 本ごとにBookコンポーネントをレンダリング
         ))}
       </main>
     </>

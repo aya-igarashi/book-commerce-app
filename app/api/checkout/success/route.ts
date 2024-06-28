@@ -53,7 +53,6 @@ export async function POST(request: Request): Promise<Response> {
       const purchase = await prisma.purchase.create({
         data: purchaseData,
       });
-      console.log(purchase);
       return NextResponse.json({ purchase });
 
     } else {

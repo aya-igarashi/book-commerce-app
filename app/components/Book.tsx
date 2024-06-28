@@ -1,25 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { BookType } from "../types/types";
 import { useState } from "react";
-import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { Session } from "next-auth";
+import { User } from "next-auth";
 
 // コンポーネントのプロパティの型を定義
 type BookProps = {
   book: BookType;
   isPurchased: boolean;
+  user: User | undefined;
 };
 
-const Book = ({ book, isPurchased }: BookProps) => {
+const Book = ({ book, isPurchased, user }: BookProps) => {
   // モーダルの表示状態を管理するための状態フック
   const [showModal, setShowModal] = useState(false);
   // ユーザーセッションを取得
-  const { data: session } = useSession();
-  const user = session?.user;
   const router = useRouter();
 
   // チェックアウトを開始する非同期関数
