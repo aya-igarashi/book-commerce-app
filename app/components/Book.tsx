@@ -69,7 +69,7 @@ const Book = ({ book, isPurchased }: BookProps) => {
     if (!user) {
       setShowModal(false);
       // ログインページへリダイレクト
-      router.push("/");
+      router.push("/api/auth/signin");
     } else {
       // Stripeで決済する
       startCheckout();

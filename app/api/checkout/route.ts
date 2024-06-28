@@ -38,8 +38,8 @@ export async function POST(request: Request): Promise<Response> {
         },
       ],
       mode: 'payment', // 決済モードを支払いに設定
-      success_url: 'http://localhost:3000/book/checkout-success?session_id={CHECKOUT_SESSION_ID}', // 成功時のリダイレクトURL
-      cancel_url: 'http://localhost:3000', // キャンセル時のリダイレクトURL
+      success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/book/checkout-success?session_id={CHECKOUT_SESSION_ID}`, // 成功時のリダイレクトURL
+      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}`, // キャンセル時のリダイレクトURL
     });
 
     // 成功した場合、セッションの URL を JSON 形式で返す
