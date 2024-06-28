@@ -16,6 +16,10 @@ export const getAllBooks = async () => {
   // クライアントを使って本のリストを取得し、BookType 型にキャスト
   const allBooks = await client.getList<BookType>({
     endpoint: "sai-e-books",
+    // microcmsで投稿した内容が即時反映されるための設定
+    customRequestInit: {
+      cache: "no-store",
+    }
   });
   // 取得した本のリストを返す
   return allBooks;
@@ -26,7 +30,10 @@ export const getDetailBook = async (contentId: string) => {
   // クライアントを使って本の詳細を取得し、BookType 型にキャスト
   const detailBook = await client.getListDetail<BookType>({
     endpoint: "sai-e-books",
-    contentId, // 変数名の修正
+    contentId,
+    customRequestInit: {
+      cache: "no-store",
+    }
   });
   // 取得した本の詳細を返す
   return detailBook;
